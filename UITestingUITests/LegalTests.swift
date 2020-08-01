@@ -9,7 +9,7 @@
 import XCTest
 @testable import UITesting
 
-class UITestingUITests: XCTestCase {
+class LegalTests: XCTestCase {
   
   var app: XCUIApplication!
   var tosButton: XCUIElement!
@@ -32,7 +32,7 @@ class UITestingUITests: XCTestCase {
     app.terminate()
   }
   
-  func testEnablingLogic() throws {
+  func testButtonAreSelectedAndEnabledCorrectly() throws {
     
     self.checkLegalStates(
       tosButtonSelected: false,
@@ -77,7 +77,7 @@ class UITestingUITests: XCTestCase {
     XCTAssertEqual(self.continueButton.isEnabled, continueButtonEnabled)
   }
   
-  func testNavigation() throws {
+  func testAppNavigatesWhenContinuePressed() throws {
     privacyButton.tap()
     tosButton.tap()
     continueButton.tap()
