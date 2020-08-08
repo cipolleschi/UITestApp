@@ -22,9 +22,11 @@ class LegalTests: XCTestCase {
     self.app = XCUIApplication()
     self.app.launch()
     
+    #if UITESTING
     self.tosButton = app.buttons[LegalView.AccessibilityIdentifiers.tosButton.rawValue]
     self.privacyButton = app.buttons[LegalView.AccessibilityIdentifiers.privacyButton.rawValue]
     self.continueButton = app.buttons[LegalView.AccessibilityIdentifiers.continueButton.rawValue]
+    #endif
   }
   
   override func tearDownWithError() throws {

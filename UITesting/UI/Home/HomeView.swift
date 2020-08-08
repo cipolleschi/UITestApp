@@ -34,7 +34,9 @@ class HomeView: UIView {
   }
   
   func setup() {
+    #if UITESTING
     self.setAcceccibilityIdentifiers()
+    #endif
   }
   
   func style() {
@@ -52,7 +54,7 @@ class HomeView: UIView {
 }
 
 // MARK: - Accessibility
-
+#if UITESTING
 extension HomeView {
   enum AccessibilityIdentifiers: String {
     case homeView = "home_view"
@@ -62,3 +64,4 @@ extension HomeView {
     self.accessibilityIdentifier = AccessibilityIdentifiers.homeView.rawValue
   }
 }
+#endif

@@ -56,7 +56,9 @@ class LegalView: UIView {
     self.addSubview(privacyButton)
     self.addSubview(continueButton)
     
+    #if UITESTING
     self.setAcceccibilityIdentifiers()
+    #endif
     
     self.tosButton.addTarget(self, action: #selector(self.tosButtonTapped(_:)), for: .touchUpInside)
     self.privacyButton.addTarget(self, action: #selector(self.privacyButtonTapped(_:)), for: .touchUpInside)
@@ -162,7 +164,7 @@ class LegalView: UIView {
 }
 
 // MARK: - Accessibility
-
+#if UITESTING
 extension LegalView {
   enum AccessibilityIdentifiers: String {
     case legalView = "legal_view"
@@ -178,3 +180,4 @@ extension LegalView {
     self.continueButton.accessibilityIdentifier = AccessibilityIdentifiers.continueButton.rawValue
   }
 }
+#endif
