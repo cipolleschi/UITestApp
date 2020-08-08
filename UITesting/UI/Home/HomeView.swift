@@ -34,7 +34,7 @@ class HomeView: UIView {
   }
   
   func setup() {
-    self.accessibilityIdentifier = "home_view"
+    self.setAcceccibilityIdentifiers()
   }
   
   func style() {
@@ -49,4 +49,16 @@ class HomeView: UIView {
     super.layoutSubviews()
   }
   
+}
+
+// MARK: - Accessibility
+
+extension HomeView {
+  enum AccessibilityIdentifiers: String {
+    case homeView = "home_view"
+  }
+  
+  func setAcceccibilityIdentifiers() {
+    self.accessibilityIdentifier = AccessibilityIdentifiers.homeView.rawValue
+  }
 }

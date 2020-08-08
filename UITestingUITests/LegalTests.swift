@@ -22,9 +22,9 @@ class LegalTests: XCTestCase {
     self.app = XCUIApplication()
     self.app.launch()
     
-    self.tosButton = app.buttons["legal_view.tos_button"]
-    self.privacyButton = app.buttons["legal_view.privacy_button"]
-    self.continueButton = app.buttons["legal_view.continue_button"]
+    self.tosButton = app.buttons[LegalView.AccessibilityIdentifiers.tosButton.rawValue]
+    self.privacyButton = app.buttons[LegalView.AccessibilityIdentifiers.privacyButton.rawValue]
+    self.continueButton = app.buttons[LegalView.AccessibilityIdentifiers.continueButton.rawValue]
   }
   
   override func tearDownWithError() throws {
@@ -82,7 +82,7 @@ class LegalTests: XCTestCase {
     tosButton.tap()
     continueButton.tap()
     
-    let homeView = app.otherElements["home_view"]
+    let homeView = app.otherElements[HomeView.AccessibilityIdentifiers.homeView.rawValue]
     XCTAssertTrue(homeView.exists)
   }
 }

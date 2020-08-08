@@ -56,9 +56,7 @@ class LegalView: UIView {
     self.addSubview(privacyButton)
     self.addSubview(continueButton)
     
-    self.tosButton.accessibilityIdentifier = "legal_view.tos_button"
-    self.privacyButton.accessibilityIdentifier = "legal_view.privacy_button"
-    self.continueButton.accessibilityIdentifier = "legal_view.continue_button"
+    self.setAcceccibilityIdentifiers()
     
     self.tosButton.addTarget(self, action: #selector(self.tosButtonTapped(_:)), for: .touchUpInside)
     self.privacyButton.addTarget(self, action: #selector(self.privacyButtonTapped(_:)), for: .touchUpInside)
@@ -160,5 +158,23 @@ class LegalView: UIView {
     button.setTitleColor(UIColor.red.withAlphaComponent(0.75), for: .highlighted)
     button.setTitle(normalText, for: .normal)
     button.setTitle(selectedText, for: .selected)
+  }
+}
+
+// MARK: - Accessibility
+
+extension LegalView {
+  enum AccessibilityIdentifiers: String {
+    case legalView = "legal_view"
+    case tosButton = "legal_view.tos_button"
+    case privacyButton = "legal_view.privacy_button"
+    case continueButton = "legal_view.continue_button"
+  }
+  
+  func setAcceccibilityIdentifiers() {
+    self.accessibilityIdentifier = AccessibilityIdentifiers.legalView.rawValue
+    self.tosButton.accessibilityIdentifier = AccessibilityIdentifiers.tosButton.rawValue
+    self.privacyButton.accessibilityIdentifier = AccessibilityIdentifiers.privacyButton.rawValue
+    self.continueButton.accessibilityIdentifier = AccessibilityIdentifiers.continueButton.rawValue
   }
 }

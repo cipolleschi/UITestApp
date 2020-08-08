@@ -17,6 +17,8 @@
 		4627A08824D4B50400583DF4 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08724D4B50400583DF4 /* LegalView.swift */; };
 		4627A08C24D5934200583DF4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08B24D5934200583DF4 /* HomeViewController.swift */; };
 		4627A08E24D5936000583DF4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08D24D5936000583DF4 /* HomeView.swift */; };
+		467AF21624DE916F002C9946 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08724D4B50400583DF4 /* LegalView.swift */; };
+		467AF21724DE917E002C9946 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08D24D5936000583DF4 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +311,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				467AF21724DE917E002C9946 /* HomeView.swift in Sources */,
+				467AF21624DE916F002C9946 /* LegalView.swift in Sources */,
 				4627A07924D4B2E600583DF4 /* LegalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
