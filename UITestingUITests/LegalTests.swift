@@ -18,6 +18,7 @@ class LegalTests: XCTestCase {
   var homeScreen: XCUIElement?
   
   override func setUpWithError() throws {
+    try super.setUpWithError()
     continueAfterFailure = false
     self.app = XCUIApplication()
     self.app.launch()
@@ -32,6 +33,7 @@ class LegalTests: XCTestCase {
   override func tearDownWithError() throws {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     app.terminate()
+    try super.tearDownWithError()
   }
   
   func testButtonAreSelectedAndEnabledCorrectly() throws {
