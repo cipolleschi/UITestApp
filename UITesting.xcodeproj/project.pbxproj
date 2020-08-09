@@ -17,13 +17,13 @@
 		4627A08824D4B50400583DF4 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08724D4B50400583DF4 /* LegalView.swift */; };
 		4627A08C24D5934200583DF4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08B24D5934200583DF4 /* HomeViewController.swift */; };
 		4627A08E24D5936000583DF4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08D24D5936000583DF4 /* HomeView.swift */; };
-		467AF21624DE916F002C9946 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08724D4B50400583DF4 /* LegalView.swift */; };
 		467AF21724DE917E002C9946 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08D24D5936000583DF4 /* HomeView.swift */; };
 		467AF21D24DE94E2002C9946 /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AF21C24DE94E2002C9946 /* HomeTests.swift */; };
 		467AF21F24DE991F002C9946 /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 467AF21E24DE991F002C9946 /* state.json */; };
 		467AF22124DE9B9C002C9946 /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 467AF21E24DE991F002C9946 /* state.json */; };
 		467AF22424DFF055002C9946 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AF22324DFF055002C9946 /* User.swift */; };
 		467AF22524DFF616002C9946 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AF22324DFF055002C9946 /* User.swift */; };
+		467AF22924E00069002C9946 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08724D4B50400583DF4 /* LegalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -342,8 +342,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				467AF21724DE917E002C9946 /* HomeView.swift in Sources */,
-				467AF21624DE916F002C9946 /* LegalView.swift in Sources */,
 				467AF21D24DE94E2002C9946 /* HomeTests.swift in Sources */,
+				467AF22924E00069002C9946 /* LegalView.swift in Sources */,
 				467AF22524DFF616002C9946 /* User.swift in Sources */,
 				4627A07924D4B2E600583DF4 /* LegalTests.swift in Sources */,
 			);
@@ -671,7 +671,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
 					"UITESTING=1",
 				);
