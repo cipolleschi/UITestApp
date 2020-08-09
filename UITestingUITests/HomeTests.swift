@@ -18,7 +18,8 @@ class HomeTests: XCTestCase {
     try super.setUpWithError()
     continueAfterFailure = false
     self.app = XCUIApplication()
-    self.app.launchArguments = ["-initialScreen", "home_screen"]
+    let path = Bundle.allBundles.compactMap { $0.path(forResource: "state", ofType: "json") }.first!
+    self.app.launchArguments = ["-initialScreen", "home_screen", "-statePath", path]
     self.app.launch()
   }
   
@@ -30,5 +31,9 @@ class HomeTests: XCTestCase {
   func testStartingFromHomeScreen() {
     let homeView = self.app.otherElements[HomeView.AccessibilityIdentifiers.homeView.rawValue]
     XCTAssertTrue(homeView.exists)
+  
+    XCTAssertEqual(self.app.staticTexts[HomeView.AccessibilityIdentifiers.name.rawValue].label, "Riccardo")
+    XCTAssertEqual(self.app.staticTexts[HomeView.AccessibilityIdentifiers.surname.rawValue].label, "Cipolleschi")
+    XCTAssertEqual(self.app.staticTexts[HomeView.AccessibilityIdentifiers.age.rawValue].label, "32")
   }
 }

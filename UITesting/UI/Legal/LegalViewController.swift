@@ -55,7 +55,7 @@ class LegalViewController: UIViewController {
         return
       }
 
-      keyWindow.rootViewController = HomeViewController()
+      keyWindow.rootViewController = HomeViewController(user: nil)
     }
   }
   
