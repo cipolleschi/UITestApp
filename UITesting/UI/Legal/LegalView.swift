@@ -162,7 +162,6 @@ class LegalView: UIView {
     button.setTitle(selectedText, for: .selected)
   }
 }
-
 // MARK: - Accessibility
 #if UITESTING
 extension LegalView {

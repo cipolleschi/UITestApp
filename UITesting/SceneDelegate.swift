@@ -92,5 +92,4 @@ extension SceneDelegate {
     return LegalViewController()
   }
 }
-
 #endif
