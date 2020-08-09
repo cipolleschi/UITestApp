@@ -19,10 +19,6 @@
 		4627A08E24D5936000583DF4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08D24D5936000583DF4 /* HomeView.swift */; };
 		467AF21724DE917E002C9946 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08D24D5936000583DF4 /* HomeView.swift */; };
 		467AF21D24DE94E2002C9946 /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AF21C24DE94E2002C9946 /* HomeTests.swift */; };
-		467AF21F24DE991F002C9946 /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 467AF21E24DE991F002C9946 /* state.json */; };
-		467AF22124DE9B9C002C9946 /* state.json in Resources */ = {isa = PBXBuildFile; fileRef = 467AF21E24DE991F002C9946 /* state.json */; };
-		467AF22424DFF055002C9946 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AF22324DFF055002C9946 /* User.swift */; };
-		467AF22524DFF616002C9946 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AF22324DFF055002C9946 /* User.swift */; };
 		467AF22924E00069002C9946 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08724D4B50400583DF4 /* LegalView.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +57,6 @@
 		4627A08B24D5934200583DF4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4627A08D24D5936000583DF4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		467AF21C24DE94E2002C9946 /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
-		467AF21E24DE991F002C9946 /* state.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = state.json; sourceTree = "<group>"; };
-		467AF22324DFF055002C9946 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +107,6 @@
 		4627A05524D4B2E400583DF4 /* UITesting */ = {
 			isa = PBXGroup;
 			children = (
-				467AF22224DFF048002C9946 /* Models */,
 				4627A08624D4B4B700583DF4 /* UI */,
 				4627A05624D4B2E400583DF4 /* AppDelegate.swift */,
 				4627A05824D4B2E400583DF4 /* SceneDelegate.swift */,
@@ -136,7 +129,6 @@
 		4627A07724D4B2E600583DF4 /* UITestingUITests */ = {
 			isa = PBXGroup;
 			children = (
-				467AF22024DE9B94002C9946 /* Resources */,
 				4627A07824D4B2E600583DF4 /* LegalTests.swift */,
 				4627A07A24D4B2E600583DF4 /* Info.plist */,
 				467AF21C24DE94E2002C9946 /* HomeTests.swift */,
@@ -169,22 +161,6 @@
 				4627A08D24D5936000583DF4 /* HomeView.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		467AF22024DE9B94002C9946 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				467AF21E24DE991F002C9946 /* state.json */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		467AF22224DFF048002C9946 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				467AF22324DFF055002C9946 /* User.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +268,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4627A06324D4B2E600583DF4 /* LaunchScreen.storyboard in Resources */,
-				467AF22124DE9B9C002C9946 /* state.json in Resources */,
 				4627A06024D4B2E600583DF4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +283,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				467AF21F24DE991F002C9946 /* state.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +299,6 @@
 				4627A08E24D5936000583DF4 /* HomeView.swift in Sources */,
 				4627A08824D4B50400583DF4 /* LegalView.swift in Sources */,
 				4627A05924D4B2E400583DF4 /* SceneDelegate.swift in Sources */,
-				467AF22424DFF055002C9946 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +317,6 @@
 				467AF21724DE917E002C9946 /* HomeView.swift in Sources */,
 				467AF21D24DE94E2002C9946 /* HomeTests.swift in Sources */,
 				467AF22924E00069002C9946 /* LegalView.swift in Sources */,
-				467AF22524DFF616002C9946 /* User.swift in Sources */,
 				4627A07924D4B2E600583DF4 /* LegalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

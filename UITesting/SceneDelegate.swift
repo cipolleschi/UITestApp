@@ -11,7 +11,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   var window: UIWindow?
-  var user: Models.User?
   
   func scene(
     _ scene: UIScene,
@@ -71,23 +70,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 #if UITESTING
 extension SceneDelegate {
-  func extractState() -> Models.User? {
-    guard
-      let state = UserDefaults.standard.string(forKey: "statePath"),
-      let fileContent = try? String(contentsOfFile: state),
-      let fileData = fileContent.data(using: .utf8)
-    else {
-      return nil
-    }
-    
-    return try? JSONDecoder().decode(Models.User.self, from: fileData)
-  }
   
   func vcForUITesting() -> UIViewController {
-    let user: Models.User? = self.extractState()
     let initialScreen = UserDefaults.standard.string(forKey: "initialScreen")
     if initialScreen == "home_screen" {
-      return HomeViewController(user: user)
+      return HomeViewController()
     }
     return LegalViewController()
   }
