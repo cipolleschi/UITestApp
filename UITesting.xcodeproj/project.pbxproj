@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4608F44224E7DEA800CDFB4F /* Arguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4608F44124E7DEA800CDFB4F /* Arguments.swift */; };
+		4608F44324E7DED600CDFB4F /* Arguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4608F44124E7DEA800CDFB4F /* Arguments.swift */; };
 		4627A05724D4B2E400583DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A05624D4B2E400583DF4 /* AppDelegate.swift */; };
 		4627A05924D4B2E400583DF4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A05824D4B2E400583DF4 /* SceneDelegate.swift */; };
 		4627A05B24D4B2E400583DF4 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A05A24D4B2E400583DF4 /* LegalViewController.swift */; };
@@ -46,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4608F44124E7DEA800CDFB4F /* Arguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arguments.swift; sourceTree = "<group>"; };
 		4627A05324D4B2E400583DF4 /* UITesting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITesting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4627A05624D4B2E400583DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4627A05824D4B2E400583DF4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 				4627A05F24D4B2E600583DF4 /* Assets.xcassets */,
 				4627A06124D4B2E600583DF4 /* LaunchScreen.storyboard */,
 				4627A06424D4B2E600583DF4 /* Info.plist */,
+				4608F44124E7DEA800CDFB4F /* Arguments.swift */,
 			);
 			path = UITesting;
 			sourceTree = "<group>";
@@ -333,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4608F44224E7DEA800CDFB4F /* Arguments.swift in Sources */,
 				4627A08C24D5934200583DF4 /* HomeViewController.swift in Sources */,
 				46CB479B24E6750C001DE931 /* PurchaseManager.swift in Sources */,
 				4627A05B24D4B2E400583DF4 /* LegalViewController.swift in Sources */,
@@ -357,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4608F44324E7DED600CDFB4F /* Arguments.swift in Sources */,
 				467AF21724DE917E002C9946 /* HomeView.swift in Sources */,
 				467AF21D24DE94E2002C9946 /* HomeTests.swift in Sources */,
 				467AF22924E00069002C9946 /* LegalView.swift in Sources */,

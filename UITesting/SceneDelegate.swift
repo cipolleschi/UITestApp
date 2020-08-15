@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
   #if UITESTING
   func resetIfNeeded() {
-    guard UserDefaults.standard.bool(forKey: "reset") else {
+    guard UserDefaults.standard.bool(forKey: Arguments.reset.rawValue) else {
       return
     }
     
@@ -57,8 +57,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   func buildDependencies() -> Dependencies {
     #if UITESTING
-    if UserDefaults.standard.object(forKey: "mockPurchase") != nil {
-      let mockedMonetizationResult = UserDefaults.standard.bool(forKey: "mockPurchase")
+    if UserDefaults.standard.object(forKey: Arguments.state.rawValue) != nil {
+      let mockedMonetizationResult = UserDefaults.standard.bool(forKey: Arguments.mockPurchase.rawValue)
       return Dependencies(purchaseManagerDependencies: .mocked(with: mockedMonetizationResult))
     }
     #endif
@@ -100,7 +100,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
   func extractState() -> Models.User? {
     guard
-      let state = UserDefaults.standard.string(forKey: "statePath"),
+      let state = UserDefaults.standard.string(forKey: Arguments.state.rawValue),
       let fileContent = try? String(contentsOfFile: state),
       let fileData = fileContent.data(using: .utf8)
     else {
@@ -112,7 +112,7 @@ extension SceneDelegate {
   
   func vcForUITesting() -> UIViewController {
     let user: Models.User? = self.extractState()
-    let initialScreen = UserDefaults.standard.string(forKey: "initialScreen")
+    let initialScreen = UserDefaults.standard.string(forKey: Arguments.initialScreen.rawValue)
     if initialScreen == "home_screen" {
       return HomeViewController(user: user, dependencies: self.dependencies)
     }

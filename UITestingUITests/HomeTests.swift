@@ -19,8 +19,11 @@ class HomeTests: XCTestCase {
     continueAfterFailure = false
     self.app = XCUIApplication()
     let path = Bundle.allBundles.compactMap { $0.path(forResource: "state", ofType: "json") }.first!
-    self.app.launchArguments = ["-initialScreen", "home_screen", "-statePath", path, "-reset", "true"]
-    
+    self.app.launchArguments = [
+      "-\(Arguments.initialScreen.rawValue)", "home_screen",
+      "-\(Arguments.state.rawValue)", path,
+      "-\(Arguments.reset)", "true"
+    ]
   }
   
   override func tearDownWithError() throws {
@@ -41,7 +44,7 @@ class HomeTests: XCTestCase {
   }
   
   func testPurchasingCoins_success() {
-    self.app.launchArguments.append(contentsOf: ["-mockPurchase", "true"])
+    self.app.launchArguments.append(contentsOf: ["-\(Arguments.mockPurchase.rawValue)", "true"])
     self.app.launch()
     let homeView = self.app.otherElements[HomeView.AccessibilityIdentifiers.homeView.rawValue]
     XCTAssertTrue(homeView.exists)
@@ -52,7 +55,7 @@ class HomeTests: XCTestCase {
   }
   
   func testPurchasingCoins_failure() {
-    self.app.launchArguments.append(contentsOf: ["-mockPurchase", "false"])
+    self.app.launchArguments.append(contentsOf: ["-\(Arguments.mockPurchase.rawValue)", "false"])
     self.app.launch()
     let homeView = self.app.otherElements[HomeView.AccessibilityIdentifiers.homeView.rawValue]
     XCTAssertTrue(homeView.exists)
