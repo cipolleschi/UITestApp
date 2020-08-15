@@ -24,6 +24,8 @@
 		467AF22424DFF055002C9946 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AF22324DFF055002C9946 /* User.swift */; };
 		467AF22524DFF616002C9946 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AF22324DFF055002C9946 /* User.swift */; };
 		467AF22924E00069002C9946 /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4627A08724D4B50400583DF4 /* LegalView.swift */; };
+		46CB479924E67402001DE931 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CB479824E67402001DE931 /* Dependencies.swift */; };
+		46CB479B24E6750C001DE931 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CB479A24E6750C001DE931 /* PurchaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		467AF21C24DE94E2002C9946 /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
 		467AF21E24DE991F002C9946 /* state.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = state.json; sourceTree = "<group>"; };
 		467AF22324DFF055002C9946 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		46CB479824E67402001DE931 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		46CB479A24E6750C001DE931 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 		4627A05524D4B2E400583DF4 /* UITesting */ = {
 			isa = PBXGroup;
 			children = (
+				46CB479724E673F9001DE931 /* Logic */,
 				467AF22224DFF048002C9946 /* Models */,
 				4627A08624D4B4B700583DF4 /* UI */,
 				4627A05624D4B2E400583DF4 /* AppDelegate.swift */,
@@ -185,6 +190,15 @@
 				467AF22324DFF055002C9946 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		46CB479724E673F9001DE931 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				46CB479824E67402001DE931 /* Dependencies.swift */,
+				46CB479A24E6750C001DE931 /* PurchaseManager.swift */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +334,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4627A08C24D5934200583DF4 /* HomeViewController.swift in Sources */,
+				46CB479B24E6750C001DE931 /* PurchaseManager.swift in Sources */,
 				4627A05B24D4B2E400583DF4 /* LegalViewController.swift in Sources */,
 				4627A05724D4B2E400583DF4 /* AppDelegate.swift in Sources */,
 				4627A08E24D5936000583DF4 /* HomeView.swift in Sources */,
+				46CB479924E67402001DE931 /* Dependencies.swift in Sources */,
 				4627A08824D4B50400583DF4 /* LegalView.swift in Sources */,
 				4627A05924D4B2E400583DF4 /* SceneDelegate.swift in Sources */,
 				467AF22424DFF055002C9946 /* User.swift in Sources */,

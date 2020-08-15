@@ -12,6 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   var window: UIWindow?
   var user: Models.User?
+  var dependencies: Dependencies!
   
   func scene(
     _ scene: UIScene,
@@ -22,12 +23,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let scene = (scene as? UIWindowScene) else { return }
+    #if UITESTING
+    self.resetIfNeeded()
+    #endif
+    
+    self.dependencies = buildDependencies()
     let vc = buildViewController()
     let window = UIWindow(windowScene: scene)
     window.rootViewController = vc
     window.makeKeyAndVisible()
     self.window = window
   }
+  #if UITESTING
+  func resetIfNeeded() {
+    guard UserDefaults.standard.bool(forKey: "reset") else {
+      return
+    }
+    
+    
+    // put the code to reset the state, remove eventual local files
+    // and remove the keys from the UserDefaults, if any.
+  }
+  #endif
   
   func buildViewController() -> UIViewController {
     
@@ -35,7 +52,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     return self.vcForUITesting()
     #endif
     
-    return LegalViewController()
+    return LegalViewController(dependencies: self.dependencies)
+  }
+  
+  func buildDependencies() -> Dependencies {
+    #if UITESTING
+    if UserDefaults.standard.object(forKey: "mockPurchase") != nil {
+      let mockedMonetizationResult = UserDefaults.standard.bool(forKey: "mockPurchase")
+      return Dependencies(purchaseManagerDependencies: .mocked(with: mockedMonetizationResult))
+    }
+    #endif
+    return Dependencies()
   }
   
   func sceneDidDisconnect(_ scene: UIScene) {
@@ -87,9 +114,9 @@ extension SceneDelegate {
     let user: Models.User? = self.extractState()
     let initialScreen = UserDefaults.standard.string(forKey: "initialScreen")
     if initialScreen == "home_screen" {
-      return HomeViewController(user: user)
+      return HomeViewController(user: user, dependencies: self.dependencies)
     }
-    return LegalViewController()
+    return LegalViewController(dependencies: Dependencies())
   }
 }
 #endif

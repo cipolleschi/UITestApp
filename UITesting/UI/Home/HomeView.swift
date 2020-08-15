@@ -29,6 +29,13 @@ struct HomeVM {
     }
     return "\(a)"
   }
+  
+  var coins: String {
+    guard let c = self.user?.coins else {
+      return "-"
+    }
+    return "\(c)"
+  }
 }
 
 class HomeView: UIView {
@@ -45,6 +52,13 @@ class HomeView: UIView {
   private var surnameLabelValue = UILabel()
   private var ageLabelTitle = UILabel()
   private var ageLabelValue = UILabel()
+  private var coinsLabelTitle = UILabel()
+  private var coinsLabelValue = UILabel()
+  
+  private var purchaseButton = UIButton()
+  
+  var purchaseInteraction: (() -> ())?
+  
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -66,10 +80,19 @@ class HomeView: UIView {
     self.addSubview(surnameLabelValue)
     self.addSubview(ageLabelTitle)
     self.addSubview(ageLabelValue)
+    self.addSubview(coinsLabelTitle)
+    self.addSubview(coinsLabelValue)
+    self.addSubview(purchaseButton)
+    
+    self.purchaseButton.addTarget(self, action: #selector(self.userDidTapPurchase(_:)), for: .touchUpInside)
     
     #if UITESTING
     self.setAcceccibilityIdentifiers()
     #endif
+  }
+  
+  @objc func userDidTapPurchase(_ control: UIControl) {
+    self.purchaseInteraction?()
   }
   
   func style() {
@@ -77,6 +100,8 @@ class HomeView: UIView {
     self.style(label: self.nameLabelTitle, isTitle: true, content: "Name:")
     self.style(label: self.surnameLabelTitle, isTitle: true, content: "Surame:")
     self.style(label: self.ageLabelTitle, isTitle: true, content: "Age:")
+    self.style(label: self.coinsLabelTitle, isTitle: true, content: "Coins:")
+    self.style(button: self.purchaseButton, content: "Purchase 1000 coins")
     
   }
   
@@ -85,6 +110,7 @@ class HomeView: UIView {
     self.style(label: self.nameLabelValue, isTitle: false, content: self.viewModel?.name ?? "-" )
     self.style(label: self.surnameLabelValue, isTitle: false, content: self.viewModel?.surname ?? "-")
     self.style(label: self.ageLabelValue, isTitle: false, content: self.viewModel?.age ?? "-")
+    self.style(label: self.coinsLabelValue, isTitle: false, content: self.viewModel?.coins ?? "-")
     
     self.setNeedsLayout()
   }
@@ -98,6 +124,17 @@ class HomeView: UIView {
     self.layout(label: self.surnameLabelValue, topAnchor: self.surnameLabelTitle.frame.maxY)
     self.layout(label: self.ageLabelTitle, topAnchor: self.surnameLabelValue.frame.maxY)
     self.layout(label: self.ageLabelValue, topAnchor: self.ageLabelTitle.frame.maxY)
+    self.layout(label: self.coinsLabelTitle, topAnchor: self.ageLabelValue.frame.maxY)
+    self.layout(label: self.coinsLabelValue, topAnchor: self.coinsLabelTitle.frame.maxY)
+    
+    let buttonHeight: CGFloat = 50
+    let lateralMargin: CGFloat = 20
+    self.purchaseButton.frame = CGRect(
+      x: lateralMargin,
+      y: self.bounds.height - self.safeAreaInsets.bottom - lateralMargin - buttonHeight,
+      width: self.bounds.width - 2 * lateralMargin,
+      height: buttonHeight
+    )
     
   }
   
@@ -118,6 +155,15 @@ class HomeView: UIView {
     label.font = font
     label.textColor = .black
   }
+
+  func style(button: UIButton, content: String) {
+    
+    button.setTitle(content, for: .normal)
+    button.setTitleColor(.black, for: .normal)
+    button.layer.cornerRadius = 5
+    button.clipsToBounds = true
+    button.layer.borderWidth = 2
+  }
 }
 
 // MARK: - Accessibility
@@ -128,6 +174,8 @@ extension HomeView {
     case name = "home_view.name_value"
     case surname = "home_view.surname_value"
     case age = "home_view.age_value"
+    case coins = "home_view.coins_value"
+    case purchase = "home_view.purchase"
   }
   
   func setAcceccibilityIdentifiers() {
@@ -135,6 +183,8 @@ extension HomeView {
     self.nameLabelValue.accessibilityIdentifier = AccessibilityIdentifiers.name.rawValue
     self.surnameLabelValue.accessibilityIdentifier = AccessibilityIdentifiers.surname.rawValue
     self.ageLabelValue.accessibilityIdentifier = AccessibilityIdentifiers.age.rawValue
+    self.coinsLabelValue.accessibilityIdentifier = AccessibilityIdentifiers.coins.rawValue
+    self.purchaseButton.accessibilityIdentifier = AccessibilityIdentifiers.purchase.rawValue
   }
 }
 #endif

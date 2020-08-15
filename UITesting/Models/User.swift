@@ -13,5 +13,10 @@ enum Models {
     let name: String
     let surname: String
     let age: Int
+    let coins: Int
+    
+    func adding(coins: Int) -> User {
+      return User(name: self.name, surname: self.surname, age: self.age, coins: self.coins + coins)
+    }
   }
 }

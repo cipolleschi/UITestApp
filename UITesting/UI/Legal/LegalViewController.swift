@@ -9,6 +9,17 @@
 import UIKit
 
 class LegalViewController: UIViewController {
+  let dependencies: Dependencies
+  
+  init(dependencies: Dependencies) {
+    self.dependencies = dependencies
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   var rootView: LegalView {
     return self.view as! LegalView
   }
@@ -55,7 +66,15 @@ class LegalViewController: UIViewController {
         return
       }
 
-      keyWindow.rootViewController = HomeViewController(user: nil)
+      keyWindow.rootViewController = HomeViewController(
+        user: Models.User(
+          name: "Test",
+          surname: "User",
+          age: 22,
+          coins: 0
+        ),
+        dependencies: self.dependencies
+      )
     }
   }
   
