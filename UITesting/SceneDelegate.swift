@@ -23,17 +23,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let scene = (scene as? UIWindowScene) else { return }
+    
+    self.dependencies = buildDependencies()
+    let vc = buildViewController()
+    
     #if UITESTING
     self.resetIfNeeded()
     #endif
     
-    self.dependencies = buildDependencies()
-    let vc = buildViewController()
     let window = UIWindow(windowScene: scene)
     window.rootViewController = vc
     window.makeKeyAndVisible()
     self.window = window
   }
+  
   #if UITESTING
   func resetIfNeeded() {
     guard UserDefaults.standard.bool(forKey: Arguments.reset.rawValue) else {
@@ -57,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   func buildDependencies() -> Dependencies {
     #if UITESTING
-    if UserDefaults.standard.object(forKey: Arguments.state.rawValue) != nil {
+    if UserDefaults.standard.object(forKey: Arguments.mockPurchase.rawValue) != nil {
       let mockedMonetizationResult = UserDefaults.standard.bool(forKey: Arguments.mockPurchase.rawValue)
       return Dependencies(purchaseManagerDependencies: .mocked(with: mockedMonetizationResult))
     }
